@@ -52,6 +52,11 @@ sudo certbot --nginx -d your-domain.com
 Update Nginx Configuration:
 Certbot should have updated your Nginx configuration to use SSL/TLS certificates. You can check the configuration at `/etc/nginx/sites-available/your-domain.com` (for Ubuntu) or `/etc/nginx/conf.d/your-domain.com.conf` (for Amazon Linux).
 
+After changes you have to link in `Sites-enabled` folder
+```
+sudo ln -s /etc/nginx/sites-available/<SITE_NAME> /etc/nginx/sites-enabled
+```
+
 **Step 7**
 
 Reload Nginx:
