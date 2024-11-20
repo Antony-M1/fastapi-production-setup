@@ -48,7 +48,9 @@ sudo nano /etc/systemd/system/gunicorn.service
 ### gunicorn.service
 File name `gunicorn.service`
 
-Note: in the below command you can see `app:app` means module `app` FastAPI instance `app`. if your module is `main` and FastAPI instance is `app` the format should like this `main:app`
+Note:
+- in the below command you can see `app:app` means module `app` FastAPI instance `app`. if your module is `main` and FastAPI instance is `app` the format should like this `main:app`.
+- Change the `WorkingDirectory` as well. and in the `ExecStart` change the `Virtual Environment` directory as well
 ```
 [Unit]
 Description=gunicorn daemon
@@ -58,8 +60,8 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/myprojectdir
-ExecStart=/home/ubuntu/myprojectdir/myprojectenv/bin/gunicorn \
+WorkingDirectory=/home/ubuntu/<MY_PROJECT_DIR>
+ExecStart=/home/ubuntu/<MY_PROJECT_DIR>/<MY_VENV_DIR>/bin/gunicorn \
           --access-logfile - \
           --workers 5 \
           --bind unix:/run/gunicorn.sock \
