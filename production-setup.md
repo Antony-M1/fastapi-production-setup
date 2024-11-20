@@ -47,6 +47,8 @@ sudo nano /etc/systemd/system/gunicorn.service
 ```
 ### gunicorn.service
 File name `gunicorn.service`
+
+Note: in the below command you can see `app:app` means module `app` FastAPI instance `app`. if your module is `main` and FastAPI instance is `app` the format should like this `main:app`
 ```
 [Unit]
 Description=gunicorn daemon
